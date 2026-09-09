@@ -373,14 +373,12 @@ class UpdateRule(ABC, Generic[_DataType]):
         self.client = client
 
     @abstractmethod
-    def get_data(self) -> _DataType:
-        ...
+    def get_data(self) -> _DataType: ...
 
     @abstractmethod
     def update(
         self, updates: MutableMapping[int, FeatureBugUpdate], data: _DataType
-    ) -> None:
-        ...
+    ) -> None: ...
 
     def run(self, updates: MutableMapping[int, FeatureBugUpdate]) -> None:
         data: _DataType = self.get_data()
